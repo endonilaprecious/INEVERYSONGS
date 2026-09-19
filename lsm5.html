@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>BAWAT PIYESA</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    font-family:Poppins,sans-serif;
+
+    overflow:hidden;
+}
+
+/* BLURRED BACKGROUND */
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(12px);
+
+    transform:scale(1.15);
+
+    z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+body::after{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:-1;
+}
+
+
+/* MESSAGE BOX */
+
+.messageBox{
+    width:90%;
+    max-width:500px;
+
+    height:75vh;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid
+        rgba(243,224,181,.25);
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 20px
+        rgba(243,224,181,.35),
+
+        0 0 60px
+        rgba(243,224,181,.18);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+
+/* TITLE */
+
+.title{
+    color:white;
+
+    text-align:center;
+
+    font-size:28px;
+
+    padding:20px;
+}
+
+
+/* MESSAGE */
+
+.message{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    color:white;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+    /* PREVENT COPYING */
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+}
+
+
+/* SCROLLBAR */
+
+.message::-webkit-scrollbar{
+    width:5px;
+}
+
+.message::-webkit-scrollbar-thumb{
+    background:#f3e0b5;
+
+    border-radius:999px;
+}
+
+
+/* BUTTON AREA */
+
+.buttonRow{
+    display:flex;
+
+    gap:10px;
+
+    padding:0 20px 20px;
+}
+
+
+/* BUTTON */
+
+.restartBtn{
+    flex:1;
+
+    padding:14px;
+
+    border:1px solid
+        rgba(243,224,181,.25);
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.10);
+
+    color:#f3e0b5;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 10px
+        rgba(243,224,181,.35),
+
+        0 0 25px
+        rgba(243,224,181,.18);
+
+    transition:
+        .25s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.restartBtn:hover{
+
+    background:
+        rgba(243,224,181,.15);
+
+    transform:scale(1.02);
+
+}
+
+
+/* BUTTON PRESS */
+
+.restartBtn:active{
+
+    transform:scale(.97);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="messageBox">
+
+
+    <div class="title">
+        BAWAT PIYESA
+    </div>
+
+
+    <div class="message">
+
+        May mga taong dumarating sa buhay natin na parang isang buong larawan—madaling makita, madaling maintindihan, at madaling maalala.
+
+<br><br>
+
+Pero may mga taong hindi ganoon.
+
+<br><br>
+
+Dumarating sila nang paisa-isa.
+
+<br><br>
+
+Isang alaala.
+
+<br><br>
+
+Isang tawanan.
+
+<br><br>
+
+Isang simpleng usapan.
+
+<br><br>
+
+Isang maliit na kilos na hindi naman dapat maging espesyal, ngunit sa paglipas ng panahon, nagiging bahagi ng isang bagay na mas malaki.
+
+<br><br>
+
+At ganoon kita nakilala.
+
+<br><br>
+
+Hindi sa isang malaking pangyayari.
+
+<br><br>
+
+Kundi sa maliliit na piraso.
+
+<br><br>
+
+Siguro kaya rin naging mas espesyal sa'kin ang kantang ito dahil paborito mo ito.
+
+<br><br>
+
+Noong una, isa lang itong kantang gusto kong pakinggan. Pero habang mas nakikilala kita, mas nagkaroon ito ng ibang kahulugan para sa'kin. Parang bawat liriko ay may sariling piraso ng kwento natin—mga bagay na malaki man o maliit, pero unti-unting naging bahagi ng kung ano tayo ngayon.
+
+<br><br>
+
+At marahil, iyon ang gusto ko sa kantang ito. Dahil kapag naririnig ko ang Bawat Piyesa, hindi ko lang naiisip kung bakit mo ito naging paborito. Naiisip ko rin kung gaano karaming maliliit na bagay ang kailangan para mabuo ang isang pagmamahalan.
+
+<br><br>
+
+May mga bahagi ng'yo na natutunan ko sa mga araw na masaya tayo. May mga bahagi namang nakita ko sa mga araw na hindi naging madali. May mga bagay na kusa mong ipinakita, at mayroon ding kailangan kong matutunang intindihin habang mas nakikilala kita.
+
+<br><br>
+
+At habang dumarami ang mga pirasong iyon, hindi ko namalayan na unti-unti na pala silang bumubuo ng isang larawan.
+
+<br><br>
+
+Isang larawang hindi ko naman hinahanap noon.
+
+<br><br>
+
+Pero ngayon, ayaw ko nang mawala.
+
+<br><br>
+
+Siguro ganoon ang pagmamahal.
+
+<br><br>
+
+Hindi mo naman agad nakikita ang buong tao.
+
+<br><br>
+
+Unti-unti mo siyang binabasa.
+
+<br><br>
+
+Parang isang librong hindi mo kailangang tapusin agad dahil bawat pahina ay may bago kang natutuklasan.
+
+<br><br>
+
+May mga pahinang madaling mahalin.
+
+<br><br>
+
+May mga pahinang kailangan mong basahin nang dalawang beses bago mo maintindihan.
+
+<br><br>
+
+May mga bahagi na magugustuhan mo agad, at mayroon ding kailangan mong tanggapin dahil bahagi pa rin iyon ng kabuuan.
+
+<br><br>
+
+At habang patuloy kitang nakikilala, mas naiintindihan ko na hindi pala kailangan maging perpekto ang isang tao para maging mahalaga.
+
+<br><br>
+
+Minsan, sapat nang maging ikaw.
+
+<br><br>
+
+Ikaw sa paraan ng pagsasalita mo.
+
+<br><br>
+
+Ikaw sa paraan ng pagtawa mo.
+
+<br><br>
+
+Ikaw sa mga bagay na hindi mo namamalayang ginagawa.
+
+<br><br>
+
+Ikaw kahit sa mga pagkakataong hindi mo alam kung paano ipapaliwanag ang sarili mo.
+
+<br><br>
+
+Dahil ang mga iyon ang bumubuo sa taong minahal ko.
+
+<br><br>
+
+At kung aalisin ko ang bawat maliit na bagay na naging bahagi ng pagkakakilala ko sa'yo, baka hindi ko na rin makilala ang sarili kong kwento.
+
+<br><br>
+
+Dahil may mga alaala akong kapag binalikan ko, ikaw ang kasama.
+
+<br><br>
+
+May mga lugar na kapag nakita ko, ikaw ang naaalala.
+
+<br><br>
+
+May mga salita na iba na ang kahulugan dahil minsan, ikaw ang nagsabi sa'kin.
+
+<br><br>
+
+At may mga kantang dati'y kanta lamang, ngunit ngayon ay may pangalan na sa pagitan ng bawat liriko.
+
+<br><br>
+
+Ikaw.
+
+<br><br>
+
+Kaya marahil Bawat Piyesa ang kantang para sa'yo.
+
+<br><br>
+
+Dahil hindi ko kayang sabihin na iisang bagay lamang ang dahilan kung bakit kita mahal.
+
+<br><br>
+
+Hindi isang katangian.
+
+<br><br>
+
+Hindi isang alaala.
+
+<br><br>
+
+Hindi isang araw.
+
+<br><br>
+
+Kundi lahat ng maliliit na bagay na, kapag pinagsama-sama, ay naging isang bagay na napakalaki sa puso ko.
+
+<br><br>
+
+At siguro, isa rin iyon sa dahilan kung bakit gusto kong isipin na kahit paborito mo ang kantang ito, unti-unti na rin itong naging paborito kong pakinggan dahil ikaw ang naaalala ko rito.
+
+<br><br>
+
+Parang may bahagi ng'yo na nananatili sa bawat salita.
+
+<br><br>
+
+At sa bawat pakikinig ko, mas lalo kong naiintindihan na hindi naman pala kailangang maging isang malaking bagay ang pagmamahal.
+
+<br><br>
+
+Minsan, nabubuo lang ito sa maliliit na piraso.
+
+<br><br>
+
+Sa bawat tawanan.
+
+<br><br>
+
+Sa bawat usapan.
+
+<br><br>
+
+Sa bawat alaala.
+
+<br><br>
+
+Sa bawat ordinaryong araw na naging espesyal dahil nandiyan ka.
+
+<br><br>
+
+At kung ang buhay ko man ay isang malaking larawan, hindi ko alam kung ilan pang piraso ang darating.
+
+<br><br>
+
+Ngunit sa ngayon, nagpapasalamat ako dahil sa napakaraming piraso ng buhay ko—
+
+<br><br>
+
+may ilan na ikaw ang laman.
+
+<br><br>
+
+At marahil, iyon na ang isa sa pinakamagandang bahaging hindi ko planong hanapin, pero masaya akong natagpuan.
+
+<br><br>
+
+At kung sakaling marinig mo ulit ang kantang ito, sana maalala mo rin na somewhere between every lyric and every piece, there is a version of me who is always thinking of you.
+
+    </div>
+
+
+    <div class="buttonRow">
+
+
+        <!-- SHOW SONG CHOICES -->
+
+        <button
+            class="restartBtn"
+            onclick="location.replace('index.html?choose=true')"
+        >
+            Choose
+        </button>
+
+
+        <!-- RETURN TO START -->
+
+        <button
+            class="restartBtn"
+            onclick="location.replace('index.html')"
+        >
+            Back
+        </button>
+
+
+    </div>
+
+
+</div>
+
+<script>
+document.querySelector('.message').addEventListener('contextmenu', function(e){
+    e.preventDefault();
+});
+
+document.querySelector('.message').addEventListener('copy', function(e){
+    e.preventDefault();
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>WILL YOU MARRY ME</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    font-family:Poppins,sans-serif;
+
+    overflow:hidden;
+}
+
+/* BLURRED BACKGROUND */
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(12px);
+
+    transform:scale(1.15);
+
+    z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+body::after{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:-1;
+}
+
+
+/* MESSAGE BOX */
+
+.messageBox{
+    width:90%;
+    max-width:500px;
+
+    height:75vh;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid
+        rgba(243,224,181,.25);
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 20px
+        rgba(243,224,181,.35),
+
+        0 0 60px
+        rgba(243,224,181,.18);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+
+/* TITLE */
+
+.title{
+    color:white;
+
+    text-align:center;
+
+    font-size:28px;
+
+    padding:20px;
+}
+
+
+/* MESSAGE */
+
+.message{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    color:white;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+    /* PREVENT COPYING */
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+}
+
+
+/* SCROLLBAR */
+
+.message::-webkit-scrollbar{
+    width:5px;
+}
+
+.message::-webkit-scrollbar-thumb{
+    background:#f3e0b5;
+
+    border-radius:999px;
+}
+
+
+/* BUTTON AREA */
+
+.buttonRow{
+    display:flex;
+
+    gap:10px;
+
+    padding:0 20px 20px;
+}
+
+
+/* BUTTON */
+
+.restartBtn{
+    flex:1;
+
+    padding:14px;
+
+    border:1px solid
+        rgba(243,224,181,.25);
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.10);
+
+    color:#f3e0b5;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 10px
+        rgba(243,224,181,.35),
+
+        0 0 25px
+        rgba(243,224,181,.18);
+
+    transition:
+        .25s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.restartBtn:hover{
+
+    background:
+        rgba(243,224,181,.15);
+
+    transform:scale(1.02);
+
+}
+
+
+/* BUTTON PRESS */
+
+.restartBtn:active{
+
+    transform:scale(.97);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="messageBox">
+
+
+    <div class="title">
+        MARRY ME
+    </div>
+
+
+    <div class="message">
+
+        Some questions are asked because we need an answer.
+
+<br><br>
+
+And some questions are asked because, somewhere in our hearts, we've already begun imagining what the answer might feel like.
+
+<br><br>
+
+Will you marry me?
+
+<br><br>
+
+It is only a few words, yet somehow they carry an entire lifetime inside them.
+
+<br><br>
+
+Whenever I hear this song, I don't immediately imagine a wedding.
+
+<br><br>
+
+I imagine the years before it.
+
+<br><br>
+
+The countless ordinary days that would have to exist before two people could ever arrive at that one extraordinary moment.
+
+<br><br>
+
+I imagine growing older with someone.
+
+<br><br>
+
+Not just growing older beside them, but actually knowing them through all the versions they become.
+
+<br><br>
+
+Knowing the person they are now.
+
+<br><br>
+
+Meeting the person they will be five years from now.
+
+<br><br>
+
+Ten years from now.
+
+<br><br>
+
+And perhaps one day, looking at them and realizing that although so much has changed, there is still something familiar in the way they smile.
+
+<br><br>
+
+Maybe that's what forever really is.
+
+<br><br>
+
+Not one long, perfect moment.
+
+<br><br>
+
+But thousands of ordinary moments choosing the same person.
+
+<br><br>
+
+Breakfasts.
+
+<br><br>
+
+Long days.
+
+<br><br>
+
+Quiet nights.
+
+<br><br>
+
+Celebrations.
+
+<br><br>
+
+Arguments that eventually become stories you laugh about.
+
+<br><br>
+
+Apologies.
+
+<br><br>
+
+New beginnings.
+
+<br><br>
+
+The kind of life that isn't always beautiful in the way movies make it seem, but beautiful because you built it together.
+
+<br><br>
+
+I know we're still young.
+
+<br><br>
+
+There are still so many things ahead of us that we haven't experienced. There are places we haven't been, dreams we haven't reached, and lessons we haven't learned.
+
+<br><br>
+
+So I don't want to pretend that I already know exactly what our future looks like.
+
+<br><br>
+
+I don't.
+
+<br><br>
+
+And maybe that's what makes this feeling so sincere.
+
+<br><br>
+
+I don't know what tomorrow holds.
+
+<br><br>
+
+I simply know that when I imagine a future worth looking forward to, sometimes, without meaning to, I see you in it.
+
+<br><br>
+
+I see a version of us that has grown beyond who we are today.
+
+<br><br>
+
+A version that has survived seasons we haven't even entered.
+
+<br><br>
+
+A version that can look back at our younger selves and say,
+
+<br><br>
+
+We made it here.
+
+<br><br>
+
+And perhaps, if that day ever comes, the most beautiful part won't be the question itself.
+
+<br><br>
+
+It will be everything that happened before it.
+
+<br><br>
+
+Every little decision.
+
+<br><br>
+
+Every difficult conversation.
+
+<br><br>
+
+Every ordinary day.
+
+<br><br>
+
+Every time we chose to understand.
+
+<br><br>
+
+Every time we stayed long enough to see another chapter.
+
+<br><br>
+
+Because a lifetime isn't created in one question.
+
+<br><br>
+
+It is created in all the days that come after the answer.
+
+<br><br>
+
+And if someday, somewhere in our future, you ask me that question—
+
+<br><br>
+
+I hope I remember this version of us.
+
+<br><br>
+
+The younger ones who didn't know where life would take them, but still dared to imagine forever.
+
+
+
+    </div>
+
+
+    <div class="buttonRow">
+
+
+        <!-- SHOW SONG CHOICES -->
+
+        <button
+            class="restartBtn"
+            onclick="location.replace('index.html?choose=true')"
+        >
+            Choose
+        </button>
+
+
+        <!-- RETURN TO START -->
+
+        <button
+            class="restartBtn"
+            onclick="location.replace('index.html')"
+        >
+            Back
+        </button>
+
+
+    </div>
+
+
+</div>
+
+<script>
+document.querySelector('.message').addEventListener('contextmenu', function(e){
+    e.preventDefault();
+});
+
+document.querySelector('.message').addEventListener('copy', function(e){
+    e.preventDefault();
+});
+</script>
+</body>
+
+</html>

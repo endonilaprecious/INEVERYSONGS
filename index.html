@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Ikaw at Ako</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap"
+      rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    font-family:"Poppins",sans-serif;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
+}
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(5px);
+    transform:scale(1.15);
+
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 35%,
+            rgba(0,0,0,.75) 100%
+        );
+
+    z-index:-1;
+}
+
+
+/* =========================
+   START SCREEN
+========================= */
+
+#startScreen,
+#songChoiceScreen{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:20;
+}
+
+#songChoiceScreen{
+    display:none;
+}
+
+#startButton,
+.songChoiceButton{
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(20px);
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+#startButton:hover,
+.songChoiceButton:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(255,255,255,.14);
+}
+
+
+/* =========================
+   SONG CHOICES
+========================= */
+
+#songChoiceBox{
+
+    width:90%;
+    max-width:360px;
+
+    padding:30px 22px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 30px rgba(243,224,181,.12);
+
+    text-align:center;
+}
+
+#songChoiceTitle{
+
+    color:#f3e0b5;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:24px;
+
+    margin-bottom:24px;
+}
+
+.songChoiceButton{
+
+    width:100%;
+
+    margin:7px 0;
+
+    color:#f3e0b5;
+}
+
+
+/* =========================
+   LYRICS SCREEN
+========================= */
+
+#lyricsScreen{
+
+    display:none;
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+}
+
+
+/* =========================
+   MUSIC PLAYER
+========================= */
+
+#musicPlayer{
+
+    display:none;
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:300px;
+    height:470px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:30px;
+
+    z-index:5;
+}
+
+
+/* =========================
+   SONG TITLE
+========================= */
+
+#songTitle{
+
+    position:absolute;
+
+    top:20px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:"Playfair Display",serif;
+
+    color:#f3e0b5;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 8px rgba(243,224,181,.7),
+        0 0 18px rgba(243,224,181,.4);
+
+    z-index:10;
+}
+
+#songTitle.smallTitle{
+    font-size:15px;
+    line-height:1.2;
+    white-space:normal;
+    width:80%;
+    left:10%;
+}
+
+/* =========================
+   ALBUM PHOTO
+========================= */
+
+#albumPhoto{
+
+    position:absolute;
+
+    top:65px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:220px;
+    height:220px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.15);
+}
+
+#albumPhoto img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+#albumPhoto img.photo5{
+    object-position:50% center;
+}
+
+
+/* =========================
+   LYRICS
+========================= */
+
+#lyric{
+
+    position:absolute;
+
+    top:295px;
+    left:15px;
+
+    width:270px;
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    line-height:1.3;
+
+    opacity:0;
+
+    filter:blur(8px);
+
+    pointer-events:none;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.8),
+        0 0 40px rgba(255,255,255,.35);
+
+    transition:
+        opacity .4s ease,
+        filter .4s ease;
+
+    z-index:10;
+}
+
+#lyric.show{
+
+    opacity:1;
+
+    filter:blur(0);
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls{
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:15px;
+
+    z-index:20;
+}
+
+.controls button{
+
+    width:45px;
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+#progressBar{
+
+    accent-color:#f3e0b5;
+
+    position:absolute;
+
+    bottom:88px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80%;
+
+    z-index:20;
+}
+
+
+/* =========================
+   TIME
+========================= */
+
+#timeContainer{
+
+    position:absolute;
+
+    bottom:66px;
+
+    left:10%;
+
+    width:80%;
+
+    height:18px;
+
+    color:white;
+
+    font-size:12px;
+
+    line-height:18px;
+
+    z-index:20;
+
+    pointer-events:none;
+}
+
+#currentTime{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+}
+
+#duration{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    text-align:right;
+}
+
+
+/* =========================
+   GLOW
+========================= */
+
+#lyricsScreen::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:700px;
+    height:700px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 70%
+        );
+
+    filter:blur(70px);
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particle{
+
+    position:absolute;
+
+    bottom:-30px;
+
+    z-index:999;
+
+    animation:
+        particleFloat
+        12s linear forwards;
+}
+
+@keyframes particleFloat{
+
+    0%{
+
+        transform:
+            translateY(0)
+            scale(.5);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.6;
+    }
+
+    100%{
+
+        transform:
+            translateY(-110vh)
+            scale(1.4);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   ENDING SCREEN
+========================= */
+
+#endingScreen{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.85);
+
+    width:320px;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s ease;
+
+    z-index:999;
+}
+
+#endingScreen.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+#endingTitle{
+
+    color:white;
+
+    font-size:40px;
+
+    margin-bottom:30px;
+}
+
+#endingButtons{
+
+    display:flex;
+
+    gap:10px;
+}
+
+#endingButtons button{
+
+    padding:14px 20px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(255,255,255,.10);
+
+    color:white;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+#endingButtons button:hover{
+
+    border-color:rgba(255,255,255,.7);
+
+    background:rgba(255,255,255,.16);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="startScreen">
+
+    <button id="startButton">
+        Tap to Start
+    </button>
+
+</div>
+
+
+<div id="songChoiceScreen">
+
+    <div id="songChoiceBox">
+
+        <div id="songChoiceTitle">
+            CHOOSE A SONG
+        </div>
+
+        <button
+            class="songChoiceButton"
+            data-song="0">
+
+            IKAW AT AKO
+
+        </button>
+
+        <button
+            class="songChoiceButton"
+            data-song="1">
+
+            NOTHING'S GONNA STOP US NOW
+
+        </button>
+
+        <button
+            class="songChoiceButton"
+            data-song="2">
+
+            18
+
+        </button>
+
+<button
+    class="songChoiceButton"
+    data-song="3">
+
+    MARRY ME
+
+</button>
+
+<button
+    class="songChoiceButton"
+    data-song="4">
+
+    BAWAT PIYESA
+
+</button>
+
+    </div>
+
+</div>
+
+
+<audio id="audio"></audio>
+
+
+<div id="lyricsScreen">
+
+    <div id="musicPlayer">
+
+        <div id="songTitle">
+            IKAW AT AKO
+        </div>
+
+
+        <div id="albumPhoto">
+
+            <img
+                id="albumImage"
+                src="photo.jpg"
+                alt="">
+
+        </div>
+
+
+        <div id="lyric"></div>
+
+
+        <div class="controls">
+
+            <button id="prevBtn">
+                ◀◀
+            </button>
+
+            <button id="playPauseBtn">
+                ❚❚
+            </button>
+
+            <button id="nextBtn">
+                ▶▶
+            </button>
+
+        </div>
+
+
+        <input
+            type="range"
+            id="progressBar"
+            value="0"
+            min="0"
+            max="100">
+
+
+        <div id="timeContainer">
+
+            <span id="currentTime">
+                0:00
+            </span>
+
+            <span id="duration">
+                0:00
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div id="endingScreen">
+
+        <div id="endingButtons">
+
+            <button id="repeatBtn">
+                Play Again
+            </button>
+
+            <button id="continueBtn">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+const songs = [
+
+    {
+        title: "IKAW AT AKO",
+        audio: "music.mp4",
+        image: "photo.jpg",
+        lyrics: [
+            {time:1.8, text:"Sa tuwing kasama kita"},
+            {time:9.0, text:"Wala ng kulang pa"},
+            {time:16.2, text:"Mahal na mahal kang talaga"},
+            {time:23.5, text:"Tayo ay iisa"},
+            {time:30.2, text:"Ikaw at Ako"},
+            {time:33.3, text:"ooh-whoa, oh"},
+            {time:37.3, text:"Tayo'y pinag-tagpo"},
+            {time:44.5, text:"Ikaw at Ako"},
+            {time:47.6, text:"ooh-whoa, oh"},
+            {time:52.3, text:"'Di na muling magkakalayo"}
+        ]
+    },
+
+
+    {
+        title: "NOTHING'S GONNA STOP US NOW",
+        audio: "music2.mp4",
+        image: "photo2.jpg",
+        lyrics: [
+            {time:3.20, text:"Looking in your eyes, I see a paradise"},
+            {time:8.30, text:"This world that I've found is too good to be true"},
+            {time:13.0, text:"Standing here beside you"},
+            {time:15.90, text:"Want so much to give you"},
+            {time:18.00, text:"This love in my heart that I'm feeling for you"},
+            {time:24.20, text:"Let them say we're crazy"},
+            {time:26.30, text:"I don't care about that"},
+            {time:29.40, text:"Put your hand in my hand"},
+            {time:30.25, text:"Baby don't ever look back"},
+            {time:34.40, text:"Let the world around us"},
+            {time:36.95, text:"Just fall apart"},
+            {time:39.35, text:"Baby we can make it if we're heart to heart"},
+            {time:44.30, text:"And we can build this dream together"},
+            {time:48.25, text:"Standing strong forever"},
+            {time:50.90, text:"Nothing's gonna stop us now"},
+            {time:55.30, text:"And if this world runs out lovers"},
+            {time:58.75, text:"We'll still have each other"},
+            {time:61.05, text:"Nothing's gonna stop us"},
+            {time:63.00, text:"Nothing's gonna stop us now"}
+        ]
+    },
+
+
+    {
+        title: "18",
+        audio: "music3.mp4",
+        image: "photo3.jpg",
+        lyrics: [
+            {time:0.60, text:"To be loved"},
+            {time:1.80, text:"And to be in love"},
+            {time:4.00, text:"And all I can do"},
+            {time:5.95, text:"Is say that"},
+            {time:6.81, text:"These arms were made"},
+            {time:8.76, text:"For holding you, oh"},
+            {time:11.60, text:"I wanna love"},
+            {time:13.10, text:"Like you made me feel"},
+            {time:16.60, text:"When we were eighteen"}
+        ]
+    },
+
+
+    {
+        title: "MARRY ME",
+        audio: "music4.mp4",
+        image: "photo4.jpg",
+        lyrics: [
+            {time:0.15, text:"How many girls in the world can make me feel like this?"},
+            {time:5.00, text:"Baby I don't ever plan to find out"},
+            {time:9.30, text:"The more I look, the more I find a reason why"},
+            {time:14.44, text:"You're the love of my life"},
+            {time:17.14, text:"You know one of these days"},
+            {time:18.74, text:"When I get my money right"},
+            {time:21.30, text:"Buy you everything"},
+            {time:22.64, text:"And show all the finer things in life"},
+            {time:25.64, text:"Will forever be enough"},
+            {time:27.74, text:"So there ain't no need to rush"},
+            {time:31.00, text:"But one day"},
+            {time:31.80, text:"I won't be able"},
+            {time:32.64, text:"To ask you loud enough"},
+            {time:34.84, text:"I'll say will you marry me"},
+            {time:42.14, text:"I swear that I will mean it"},
+            {time:44.44, text:"I'll say will you marry me"}
+        ]
+    },
+    
+    {
+    title: "BAWAT PIYESA",
+    audio: "music5.mp4",
+    image: "photo5.jpeg",
+    lyrics: [
+        {time:0.60, text:"Huwag kang bibitaw, huwag kang mawawala"},
+        {time:13.01, text:"Oh, aking dinadala ang bawat piyesa ng ikaw"},
+        {time:31.50, text:"Anong gagawin kung wala ka?"},
+        {time:38.00, text:"Anong gagawin kung wala ka?"},
+        {time:45.00, text:"Anong gagawin kung wala ka?"},
+        {time:50.00, text:"Kung wala ka?"}
+    ]
+}
+
+];
+
+
+const audio = document.getElementById("audio");
+const lyric = document.getElementById("lyric");
+
+const startButton = document.getElementById("startButton");
+const startScreen = document.getElementById("startScreen");
+
+const songChoiceScreen =
+    document.getElementById("songChoiceScreen");
+
+const songChoiceButtons =
+    document.querySelectorAll(".songChoiceButton");
+
+const lyricsScreen =
+    document.getElementById("lyricsScreen");
+
+const musicPlayer =
+    document.getElementById("musicPlayer");
+
+const songTitle =
+    document.getElementById("songTitle");
+
+const albumImage =
+    document.getElementById("albumImage");
+
+const endingScreen =
+    document.getElementById("endingScreen");
+
+const repeatBtn =
+    document.getElementById("repeatBtn");
+
+const continueBtn =
+    document.getElementById("continueBtn");
+
+const playPauseBtn =
+    document.getElementById("playPauseBtn");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const currentTimeText =
+    document.getElementById("currentTime");
+
+const durationText =
+    document.getElementById("duration");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+
+let currentSongIndex = 0;
+let currentLyricIndex = -1;
+let changing = false;
+let particleStarted = false;
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+const FADE_OUT = 180;
+const BLANK_GAP = 180;
+
+
+/* =========================
+   TIME FORMAT
+========================= */
+
+function formatTime(seconds){
+
+    if(!Number.isFinite(seconds)){
+        return "0:00";
+    }
+
+    const mins =
+        Math.floor(seconds / 60);
+
+    const secs =
+        Math.floor(seconds % 60);
+
+    return mins + ":" +
+        String(secs).padStart(2,"0");
+}
+
+
+/* =========================
+   RESET LYRIC
+========================= */
+
+function resetLyric(){
+
+    currentLyricIndex = -1;
+
+    changing = false;
+
+    lyric.textContent = "";
+
+    lyric.classList.remove("show");
+}
+
+
+/* =========================
+   LOAD SONG
+========================= */
+
+function loadSong(index, autoplay = true){
+
+    if(index < 0){
+        index = songs.length - 1;
+    }
+
+    if(index >= songs.length){
+        index = 0;
+    }
+
+    currentSongIndex = index;
+
+    const song = songs[index];
+
+    endingScreen.classList.remove("show");
+
+    resetLyric();
+
+songTitle.textContent = song.title;
+
+songTitle.classList.remove("smallTitle");
+
+if(song.title === "NOTHING'S GONNA STOP US NOW"){
+    songTitle.classList.add("smallTitle");
+}
+
+    albumImage.src =
+        song.image;
+        
+        albumImage.classList.remove("photo5");
+
+if(song.image === "photo5.jpg"){
+    albumImage.classList.add("photo5");
+}
+
+    audio.pause();
+
+    audio.src =
+        song.audio;
+
+    audio.load();
+
+    progressBar.value = 0;
+
+    currentTimeText.textContent =
+        "0:00";
+
+    durationText.textContent =
+        "0:00";
+
+    playPauseBtn.textContent =
+        "❚❚";
+
+
+    if(autoplay){
+
+        audio.play().catch(() => {
+
+            playPauseBtn.textContent =
+                "▶";
+
+        });
+
+    }
+
+}
+
+
+/* =========================
+   SHOW SONG CHOICES
+========================= */
+
+function showSongChoices(){
+
+    startScreen.style.display =
+        "none";
+
+    lyricsScreen.style.display =
+        "none";
+
+    musicPlayer.style.display =
+        "none";
+
+    endingScreen.classList.remove(
+        "show"
+    );
+
+    audio.pause();
+
+    songChoiceScreen.style.display =
+        "flex";
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+startButton.onclick = () => {
+
+    startScreen.style.display =
+        "none";
+
+    songChoiceScreen.style.display =
+        "flex";
+
+};
+
+
+/* =========================
+   SONG CHOICES
+========================= */
+
+songChoiceButtons.forEach(button => {
+
+    button.onclick = () => {
+
+        const index =
+            Number(button.dataset.song);
+
+
+        songChoiceScreen.style.display =
+            "none";
+
+        lyricsScreen.style.display =
+            "block";
+
+        musicPlayer.style.display =
+            "block";
+
+
+        loadSong(index, true);
+
+        createParticles();
+
+    };
+
+});
+
+
+/* =========================
+   AUDIO METADATA
+========================= */
+
+audio.addEventListener(
+    "loadedmetadata",
+    () => {
+
+        durationText.textContent =
+            formatTime(audio.duration);
+
+    }
+);
+
+
+/* =========================
+   PLAY
+========================= */
+
+audio.addEventListener(
+    "play",
+    () => {
+
+        playPauseBtn.textContent =
+            "❚❚";
+
+    }
+);
+
+
+/* =========================
+   PAUSE
+========================= */
+
+audio.addEventListener(
+    "pause",
+    () => {
+
+        if(!audio.ended){
+
+            playPauseBtn.textContent =
+                "▶";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   TIME UPDATE
+========================= */
+
+audio.addEventListener(
+    "timeupdate",
+    () => {
+
+        const currentTime =
+            audio.currentTime;
+
+        const lyrics =
+            songs[currentSongIndex].lyrics;
+
+
+        if(audio.duration){
+
+            progressBar.value =
+                (currentTime /
+                audio.duration) * 100;
+
+            durationText.textContent =
+                formatTime(audio.duration);
+
+        }
+
+
+        currentTimeText.textContent =
+            formatTime(currentTime);
+
+
+        let foundIndex = -1;
+
+
+        for(
+            let i = lyrics.length - 1;
+            i >= 0;
+            i--
+        ){
+
+            if(
+                currentTime >=
+                lyrics[i].time
+            ){
+
+                foundIndex = i;
+
+                break;
+
+            }
+
+        }
+
+
+        if(foundIndex === -1){
+
+            if(currentLyricIndex !== -1){
+
+                resetLyric();
+
+            }
+
+            return;
+
+        }
+
+
+        if(
+            foundIndex !== currentLyricIndex &&
+            !changing
+        ){
+
+            changing = true;
+
+            currentLyricIndex =
+                foundIndex;
+
+
+            lyric.classList.remove(
+                "show"
+            );
+
+
+            setTimeout(() => {
+
+                lyric.textContent =
+                    "";
+
+
+                setTimeout(() => {
+
+                    lyric.textContent =
+                        lyrics[foundIndex].text;
+
+
+                    requestAnimationFrame(() => {
+
+                        lyric.classList.add(
+                            "show"
+                        );
+
+                        changing = false;
+
+                    });
+
+                }, BLANK_GAP);
+
+            }, FADE_OUT);
+
+        }
+
+    }
+);
+
+
+/* =========================
+   SONG ENDED
+========================= */
+
+audio.addEventListener(
+    "ended",
+    () => {
+
+        playPauseBtn.textContent =
+            "▶";
+
+        endingScreen.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================
+   PLAY / PAUSE
+========================= */
+
+playPauseBtn.onclick = () => {
+
+    if(audio.paused){
+
+        audio.play().catch(() => {});
+
+    }else{
+
+        audio.pause();
+
+    }
+
+};
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+progressBar.addEventListener(
+    "input",
+    () => {
+
+        if(!audio.duration){
+            return;
+        }
+
+
+        audio.currentTime =
+            (Number(progressBar.value) / 100)
+            * audio.duration;
+
+
+        const lyrics =
+            songs[currentSongIndex].lyrics;
+
+
+        let foundIndex = -1;
+
+
+        for(
+            let i = lyrics.length - 1;
+            i >= 0;
+            i--
+        ){
+
+            if(
+                audio.currentTime >=
+                lyrics[i].time
+            ){
+
+                foundIndex = i;
+
+                break;
+
+            }
+
+        }
+
+
+        currentLyricIndex =
+            foundIndex;
+
+
+        if(foundIndex >= 0){
+
+            lyric.textContent =
+                lyrics[foundIndex].text;
+
+            lyric.classList.add(
+                "show"
+            );
+
+        }else{
+
+            lyric.textContent =
+                "";
+
+            lyric.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   BACKWARD / FORWARD
+========================= */
+
+const SKIP_TIME = 5; // seconds
+
+
+prevBtn.onclick = () => {
+
+    if(!Number.isFinite(audio.duration)){
+        return;
+    }
+
+    audio.currentTime = Math.max(
+        0,
+        audio.currentTime - SKIP_TIME
+    );
+
+};
+
+
+nextBtn.onclick = () => {
+
+    if(!Number.isFinite(audio.duration)){
+        return;
+    }
+
+    audio.currentTime = Math.min(
+        audio.duration,
+        audio.currentTime + SKIP_TIME
+    );
+
+};
+
+
+/* =========================
+   PLAY AGAIN
+========================= */
+
+repeatBtn.onclick = () => {
+
+    endingScreen.classList.remove(
+        "show"
+    );
+
+    resetLyric();
+
+    audio.currentTime = 0;
+
+    audio.play().catch(() => {});
+
+};
+
+
+/* =========================
+   CONTINUE
+========================= */
+
+continueBtn.onclick = () => {
+
+    const lsmPages = [
+    "lsm.html",
+    "lsm2.html",
+    "lsm3.html",
+    "lsm4.html",
+    "lsm5.html"
+];
+
+
+    window.location.href =
+        lsmPages[currentSongIndex];
+
+};
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createParticles(){
+
+    if(particleStarted){
+        return;
+    }
+
+    particleStarted = true;
+
+
+    setInterval(() => {
+
+        if(
+            lyricsScreen.style.display !==
+            "block"
+        ){
+
+            return;
+
+        }
+
+
+        const particle =
+            document.createElement("div");
+
+
+        particle.className =
+            "particle";
+
+        particle.textContent =
+            "♡";
+
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+
+        particle.style.fontSize =
+            (10 + Math.random() * 20)
+            + "px";
+
+
+        particle.style.color =
+            "#ff9ecf";
+
+
+        particle.style.textShadow =
+            "0 0 8px #ff9ecf," +
+            "0 0 18px #ff9ecf," +
+            "0 0 30px #ff69b4";
+
+
+        lyricsScreen.appendChild(
+            particle
+        );
+
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        },9000);
+
+
+    },700);
+
+}
+
+
+/* =========================
+   RETURN FROM LSM
+========================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+if(
+    params.get("choose") === "true"
+){
+
+    showSongChoices();
+
+}
+
+</script>
+</body>
+</html>

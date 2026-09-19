@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>18</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    font-family:Poppins,sans-serif;
+
+    overflow:hidden;
+}
+
+/* BLURRED BACKGROUND */
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:url("ourphoto.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(12px);
+
+    transform:scale(1.15);
+
+    z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+body::after{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:-1;
+}
+
+
+/* MESSAGE BOX */
+
+.messageBox{
+    width:90%;
+    max-width:500px;
+
+    height:75vh;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid
+        rgba(243,224,181,.25);
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 20px
+        rgba(243,224,181,.35),
+
+        0 0 60px
+        rgba(243,224,181,.18);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+
+/* TITLE */
+
+.title{
+    color:white;
+
+    text-align:center;
+
+    font-size:28px;
+
+    padding:20px;
+}
+
+
+/* MESSAGE */
+
+.message{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    color:white;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+    /* PREVENT COPYING */
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+}
+
+
+/* SCROLLBAR */
+
+.message::-webkit-scrollbar{
+    width:5px;
+}
+
+.message::-webkit-scrollbar-thumb{
+    background:#f3e0b5;
+
+    border-radius:999px;
+}
+
+
+/* BUTTON AREA */
+
+.buttonRow{
+    display:flex;
+
+    gap:10px;
+
+    padding:0 20px 20px;
+}
+
+
+/* BUTTON */
+
+.restartBtn{
+    flex:1;
+
+    padding:14px;
+
+    border:1px solid
+        rgba(243,224,181,.25);
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.10);
+
+    color:#f3e0b5;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 10px
+        rgba(243,224,181,.35),
+
+        0 0 25px
+        rgba(243,224,181,.18);
+
+    transition:
+        .25s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.restartBtn:hover{
+
+    background:
+        rgba(243,224,181,.15);
+
+    transform:scale(1.02);
+
+}
+
+
+/* BUTTON PRESS */
+
+.restartBtn:active{
+
+    transform:scale(.97);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="messageBox">
+
+
+    <div class="title">
+        18
+    </div>
+
+
+    <div class="message">
+
+There are certain ages that somehow feel like distant places.
+
+<br><br>
+
+You hear people talk about them, imagine what they might feel like, and wonder what kind of person you'll become when you finally get there.
+
+<br><br>
+
+For me, 18 feels like one of those places.
+
+<br><br>
+
+Not because I am there yet, but because it is still somewhere ahead of me—a chapter waiting to be written.
+
+<br><br>
+
+And maybe that's why this song feels different when I listen to it.
+
+<br><br>
+
+It makes me think about growing up, about all the things that are still waiting for me, and about how strange it is to know that the person I am today won't always be the same person years from now.
+
+<br><br>
+
+There are still so many things I haven't experienced.
+
+<br><br>
+
+So many places I haven't seen.
+
+<br><br>
+
+So many dreams I haven't reached.
+
+<br><br>
+
+So many versions of myself that I haven't met yet.
+
+<br><br>
+
+And somewhere between the person I am now and the person I will eventually become, there is you.
+
+<br><br>
+
+That's the part I find beautiful.
+
+<br><br>
+
+I don't know what we'll look like when that age finally comes.
+
+<br><br>
+
+Maybe we'll be different.
+
+<br><br>
+
+Maybe we'll have grown in ways we cannot imagine right now.
+
+<br><br>
+
+Maybe the things that matter so much to us today will become memories we laugh about someday.
+
+<br><br>
+
+But I hope that when I finally reach 18, I can look back at this version of myself and remember how it felt to be here.
+
+<br><br>
+
+To be young.
+
+<br><br>
+
+To still have so much ahead of me.
+
+<br><br>
+
+And to have someone I loved during this part of my life.
+
+<br><br>
+
+Because I think there is something beautiful about growing up while someone is growing alongside you.
+
+<br><br>
+
+You don't know exactly who either of you will become, but you get to witness the changes.
+
+<br><br>
+
+You get to see the dreams become bigger.
+
+<br><br>
+
+The conversations become deeper.
+
+<br><br>
+
+The little things become memories.
+
+<br><br>
+
+And perhaps one day, when 18 is no longer something I am waiting for, I will look back and realize that I was already living a chapter worth remembering long before I reached it.
+
+<br><br>
+
+Maybe that's what I want this song to remind me of.
+
+<br><br>
+
+That I don't have to rush toward the next age just because it feels important.
+
+<br><br>
+
+There is something beautiful about being exactly where I am now.
+
+<br><br>
+
+Still young.
+
+<br><br>
+
+Still becoming.
+
+<br><br>
+
+Still discovering what life has in store for me.
+
+<br><br>
+
+And if you're still beside me when I finally turn that page, then maybe 18 won't simply be another age.
+
+<br><br>
+
+Maybe it will be another chapter of a story that started much earlier.
+
+<br><br>
+
+A story that, for now, is still being written.
+
+<br><br>
+
+And I think I'm okay with not knowing what the next page says yet.
+
+<br><br>
+
+Because sometimes, the most beautiful parts of a story are the ones you haven't read.
+
+    </div>
+
+
+    <div class="buttonRow">
+
+
+        <!-- SHOW SONG CHOICES -->
+
+        <button
+            class="restartBtn"
+            onclick="location.replace('index.html?choose=true')"
+        >
+            Choose
+        </button>
+
+
+        <!-- RETURN TO START -->
+
+        <button
+            class="restartBtn"
+            onclick="location.replace('index.html')"
+        >
+            Back
+        </button>
+
+
+    </div>
+
+
+</div>
+
+<script>
+document.querySelector('.message').addEventListener('contextmenu', function(e){
+    e.preventDefault();
+});
+
+document.querySelector('.message').addEventListener('copy', function(e){
+    e.preventDefault();
+});
+</script>
+</body>
+
+</html>
